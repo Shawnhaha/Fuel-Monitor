@@ -10,170 +10,8 @@
     "configuration": null
   },
   "metadata": {
-    "firstNodeIndex": 11,
+    "firstNodeIndex": 0,
     "nodes": [
-      {
-        "additionalInfo": {
-          "description": "",
-          "layoutX": 223,
-          "layoutY": 644
-        },
-        "type": "org.thingsboard.rule.engine.metadata.TbGetAttributesNode",
-        "name": "speed",
-        "debugMode": true,
-        "configuration": {
-          "tellFailureIfAbsent": true,
-          "clientAttributeNames": [],
-          "sharedAttributeNames": [],
-          "serverAttributeNames": [],
-          "latestTsKeyNames": [
-            "vx",
-            "vy",
-            "vz"
-          ],
-          "getLatestValueWithTs": false
-        }
-      },
-      {
-        "additionalInfo": {
-          "description": "",
-          "layoutX": 668,
-          "layoutY": 669
-        },
-        "type": "org.thingsboard.rule.engine.transform.TbTransformMsgNode",
-        "name": "Initial Speed",
-        "debugMode": true,
-        "configuration": {
-          "jsScript": "metadata.distance = msg.distance;\nmetadata.vx = msg.vx;\nmetadata.vy = msg.vy;\nmetadata.vz = msg.vz;\nreturn {msg: msg, metadata: metadata, msgType: msgType};"
-        }
-      },
-      {
-        "additionalInfo": {
-          "description": "",
-          "layoutX": 445,
-          "layoutY": 520
-        },
-        "type": "org.thingsboard.rule.engine.metadata.TbGetAttributesNode",
-        "name": "distance & speed",
-        "debugMode": true,
-        "configuration": {
-          "tellFailureIfAbsent": true,
-          "clientAttributeNames": [],
-          "sharedAttributeNames": [],
-          "serverAttributeNames": [],
-          "latestTsKeyNames": [
-            "distance",
-            "vx",
-            "vy",
-            "vz"
-          ],
-          "getLatestValueWithTs": false
-        }
-      },
-      {
-        "additionalInfo": {
-          "description": "",
-          "layoutX": 1211,
-          "layoutY": 407
-        },
-        "type": "org.thingsboard.rule.engine.telemetry.TbMsgTimeseriesNode",
-        "name": "Save Timeseries",
-        "debugMode": false,
-        "configuration": {
-          "defaultTTL": 0
-        }
-      },
-      {
-        "additionalInfo": {
-          "description": "",
-          "layoutX": 617,
-          "layoutY": 407
-        },
-        "type": "org.thingsboard.rule.engine.transform.TbTransformMsgNode",
-        "name": "Fuel Level",
-        "debugMode": true,
-        "configuration": {
-          "jsScript": "msg.fuel_level = 300 - msg.distance;\nreturn {msg: msg, metadata: metadata, msgType: msgType};"
-        }
-      },
-      {
-        "additionalInfo": {
-          "description": "",
-          "layoutX": 242,
-          "layoutY": 762
-        },
-        "type": "org.thingsboard.rule.engine.transform.TbTransformMsgNode",
-        "name": "Fly Speed",
-        "debugMode": true,
-        "configuration": {
-          "jsScript": "//msg.t = 1;\nmsg.vx = Number(metadata.vx) + msg.accel_x;\nmsg.vy = Number(metadata.vy) + msg.accel_y;\nmsg.vz = Number(metadata.vz) + msg.accel_z;\nmsg.v = Math.sqrt(Math.pow(msg.vx, 2) + Math.pow(msg.vy, 2) + Math.pow(msg.vz, 2));\nreturn {msg: msg, metadata: metadata, msgType: msgType};"
-        }
-      },
-      {
-        "additionalInfo": {
-          "description": "",
-          "layoutX": 874,
-          "layoutY": 523
-        },
-        "type": "org.thingsboard.rule.engine.transform.TbTransformMsgNode",
-        "name": "Burning Rate & Speed",
-        "debugMode": true,
-        "configuration": {
-          "jsScript": "msg.t=1;\nmsg.burning_rate = (msg.distance - metadata.distance)/msg.t;\nmsg.fly_time = (300-msg.distance)/msg.burning_rate;\n\nmsg.vx = Number(metadata.vx) + msg.accel_x;\nmsg.vy = Number(metadata.vy) + msg.accel_y;\nmsg.vz = 0;\n//Number(metadata.vz) + msg.accel_z;\n//metadata.vx=0;\n//metadata.vy=0;\n//metadata.vz=0;\nmsg.v = Math.sqrt(Math.pow(msg.vx, 2) + Math.pow(msg.vy, 2) + Math.pow(msg.vz, 2));\n\nmsg.fly_distance = msg.fly_time * msg.v;\nreturn {msg: msg, metadata: metadata, msgType: msgType};"
-        }
-      },
-      {
-        "additionalInfo": {
-          "description": "",
-          "layoutX": 1055,
-          "layoutY": 735
-        },
-        "type": "org.thingsboard.rule.engine.transform.TbTransformMsgNode",
-        "name": "Fly Distance",
-        "debugMode": true,
-        "configuration": {
-          "jsScript": "msg.fly_time = (300-msg.distance)/msg.burning_rate;\nmsg.fly_distance = msg.fly_time * msg.v;\nreturn {msg: msg, metadata: metadata, msgType: msgType};"
-        }
-      },
-      {
-        "additionalInfo": {
-          "description": "",
-          "layoutX": 626,
-          "layoutY": 315
-        },
-        "type": "org.thingsboard.rule.engine.filter.TbJsFilterNode",
-        "name": "Check Fuel Level",
-        "debugMode": false,
-        "configuration": {
-          "jsScript": "return msg.distance > 250;"
-        }
-      },
-      {
-        "additionalInfo": {
-          "description": "",
-          "layoutX": 626,
-          "layoutY": 147
-        },
-        "type": "org.thingsboard.rule.engine.filter.TbJsFilterNode",
-        "name": "Check Temperature",
-        "debugMode": false,
-        "configuration": {
-          "jsScript": "return msg.temperature > 30;"
-        }
-      },
-      {
-        "additionalInfo": {
-          "description": "",
-          "layoutX": 625,
-          "layoutY": 228
-        },
-        "type": "org.thingsboard.rule.engine.filter.TbJsFilterNode",
-        "name": "Check Air Pressure",
-        "debugMode": false,
-        "configuration": {
-          "jsScript": "return msg.air_pressure > 1100;"
-        }
-      },
       {
         "additionalInfo": {
           "description": "",
@@ -186,17 +24,133 @@
         "configuration": {
           "jsScript": "if(metadata.deviceName == \"Fuel Monitor\")\n    return true;\nreturn false;"
         }
+      },
+      {
+        "additionalInfo": {
+          "description": "",
+          "layoutX": 662,
+          "layoutY": 561
+        },
+        "type": "org.thingsboard.rule.engine.transform.TbTransformMsgNode",
+        "name": "Initial data",
+        "debugMode": true,
+        "configuration": {
+          "jsScript": "metadata.vx = msg.vx;\nmetadata.vy = msg.vy;\nmetadata.vz = msg.vz;\nmetadata.delta_x = msg.delta_x\nmetadata.delta_y = msg.delta_y;\nmetadata.delta_z = msg.delta_z;\nmetadata.distance = msg.distance;\nmetadata.fuel_level = msg.fuel_level;\nmetadata.burning_rate = msg.burning_rate;\nmetadata.fly_time = msg.fly_time;\nmetadata.fly_distance = msg.fly_distance;\nreturn {msg: msg, metadata: metadata, msgType: msgType};"
+        }
+      },
+      {
+        "additionalInfo": {
+          "description": "",
+          "layoutX": 501,
+          "layoutY": 371
+        },
+        "type": "org.thingsboard.rule.engine.metadata.TbGetAttributesNode",
+        "name": "Previous data",
+        "debugMode": true,
+        "configuration": {
+          "tellFailureIfAbsent": true,
+          "clientAttributeNames": [],
+          "sharedAttributeNames": [],
+          "serverAttributeNames": [],
+          "latestTsKeyNames": [
+            "vx",
+            "vy",
+            "vz",
+            "delta_x",
+            "delta_y",
+            "delta_z",
+            "distance",
+            "burning_rate",
+            "ax",
+            "ay",
+            "az",
+            "fuel_level",
+            "fly_time",
+            "fly_distance"
+          ],
+          "getLatestValueWithTs": false
+        }
+      },
+      {
+        "additionalInfo": {
+          "description": "",
+          "layoutX": 1164,
+          "layoutY": 368
+        },
+        "type": "org.thingsboard.rule.engine.telemetry.TbMsgTimeseriesNode",
+        "name": "Save Timeseries",
+        "debugMode": true,
+        "configuration": {
+          "defaultTTL": 0
+        }
+      },
+      {
+        "additionalInfo": {
+          "description": "",
+          "layoutX": 837,
+          "layoutY": 372
+        },
+        "type": "org.thingsboard.rule.engine.transform.TbTransformMsgNode",
+        "name": "Compute data",
+        "debugMode": true,
+        "configuration": {
+          "jsScript": "msg.t = 1;\n\n//fuel_level calculation\nmsg.fuel_level = (38-msg.distance)*0.497368421;\n//msg.fuel_level = 300 - msg.distance;\n\n//danger check\nif(msg.temperature>40 || msg.air_pressure>1500 || msg.fuel_level<1){\n    msg.danger = 1;\n}\nelse{\n    msg.danger = 0;\n}\n\n//accelerate error control\nif (Math.abs(msg.accel_x - metadata.delta_x) > 0.3) {\n    msg.ax = msg.accel_x - metadata.delta_x;\n    msg.vx = Number(metadata.vx) + msg.ax*msg.t;\n}\nelse{\n    msg.ax = 0;\n    msg.vx = 0;\n}\nif (Math.abs(msg.accel_y - metadata.delta_y) > 0.3) {\n    msg.ay = msg.accel_y - metadata.delta_y;\n    msg.vy = Number(metadata.vy) + msg.ay*msg.t;\n}\nelse{\n    msg.ay = 0;\n    msg.vy = 0;\n}\nif (Math.abs(msg.accel_z - metadata.delta_z) > 0.3) {\n    msg.az = msg.accel_z - metadata.delta_z;\n    msg.vz = Number(metadata.vz) + msg.az*msg.t;\n}\nelse{\n    msg.az = 0;\n    msg.vz = 0;\n}\n\n//msg.v = Math.sqrt(Math.pow(msg.vx, 2) + Math.pow(msg.vy, 2) + Math.pow(msg.vz, 2));\nif (Math.abs(msg.ax - metadata.ax) < 0.3 && Math.abs(msg.ay - metadata.ay) < 0.3 && Math.abs(msg.az - metadata.az) < 0.3) {\n    msg.vx = 0;\n    msg.vy = 0;\n    msg.vz = 0;\n    msg.v = 0;\n}\nelse{\n    msg.v = Math.sqrt(Math.pow(msg.vx, 2) + Math.pow(msg.vy, 2) + Math.pow(msg.vz, 2));\n}\n\n//burning rate\nmsg.burning_rate = (metadata.fuel_level- msg.fuel_level)/msg.t;\n//msg.burning_rate = (msg.distance- metadata.distance)/msg.t;\nif (msg.burning_rate <= 0){\n    //msg.burning_rate = metadata.burning_rate;\n    msg.burning_rate = 0;\n    msg.fly_time = metadata.fly_time;\n}\nelse{\n    msg.fly_time = msg.fuel_level/msg.burning_rate;\n}\n\n//msg.fly_time = msg.fuel_level/msg.burning_rate;\nmsg.fly_distance = msg.fly_time * msg.v;\n\nreturn {msg: msg, metadata: metadata, msgType: msgType};"
+        }
+      },
+      {
+        "additionalInfo": {
+          "description": "",
+          "layoutX": 631,
+          "layoutY": 142
+        },
+        "type": "org.thingsboard.rule.engine.filter.TbJsFilterNode",
+        "name": "Check Fuel Level",
+        "debugMode": false,
+        "configuration": {
+          "jsScript": "return msg.distance > 250;"
+        }
+      },
+      {
+        "additionalInfo": {
+          "description": "",
+          "layoutX": 629,
+          "layoutY": 36
+        },
+        "type": "org.thingsboard.rule.engine.filter.TbJsFilterNode",
+        "name": "Check Temperature",
+        "debugMode": false,
+        "configuration": {
+          "jsScript": "return msg.temperature > 30;"
+        }
+      },
+      {
+        "additionalInfo": {
+          "description": "",
+          "layoutX": 630,
+          "layoutY": 89
+        },
+        "type": "org.thingsboard.rule.engine.filter.TbJsFilterNode",
+        "name": "Check Air Pressure",
+        "debugMode": false,
+        "configuration": {
+          "jsScript": "return msg.air_pressure > 1100;"
+        }
       }
     ],
     "connections": [
       {
         "fromIndex": 0,
-        "toIndex": 5,
-        "type": "Success"
+        "toIndex": 3,
+        "type": "True"
+      },
+      {
+        "fromIndex": 0,
+        "toIndex": 2,
+        "type": "True"
       },
       {
         "fromIndex": 1,
-        "toIndex": 6,
+        "toIndex": 4,
         "type": "Success"
       },
       {
@@ -206,90 +160,55 @@
       },
       {
         "fromIndex": 2,
-        "toIndex": 6,
+        "toIndex": 4,
         "type": "Success"
       },
       {
         "fromIndex": 4,
         "toIndex": 3,
         "type": "Success"
-      },
-      {
-        "fromIndex": 6,
-        "toIndex": 3,
-        "type": "Success"
-      },
-      {
-        "fromIndex": 11,
-        "toIndex": 8,
-        "type": "True"
-      },
-      {
-        "fromIndex": 11,
-        "toIndex": 2,
-        "type": "True"
-      },
-      {
-        "fromIndex": 11,
-        "toIndex": 9,
-        "type": "True"
-      },
-      {
-        "fromIndex": 11,
-        "toIndex": 10,
-        "type": "True"
-      },
-      {
-        "fromIndex": 11,
-        "toIndex": 4,
-        "type": "True"
-      },
-      {
-        "fromIndex": 11,
-        "toIndex": 3,
-        "type": "True"
       }
     ],
     "ruleChainConnections": [
       {
-        "fromIndex": 8,
+        "fromIndex": 5,
         "targetRuleChainId": {
           "entityType": "RULE_CHAIN",
           "id": "594b0b60-3415-11eb-ae29-b1fa2d5d3c98"
         },
         "additionalInfo": {
           "description": "",
-          "layoutX": 1229,
-          "layoutY": 174,
-          "ruleChainNodeId": "rule-chain-node-14"
+          "layoutX": 1105,
+          "layoutY": 99,
+          "ruleChainNodeId": "rule-chain-node-10"
         },
         "type": "True"
       },
       {
-        "fromIndex": 9,
+        "fromIndex": 6,
         "targetRuleChainId": {
           "entityType": "RULE_CHAIN",
           "id": "594b0b60-3415-11eb-ae29-b1fa2d5d3c98"
         },
         "additionalInfo": {
           "description": "",
-          "layoutX": 1229,
-          "layoutY": 174,
-          "ruleChainNodeId": "rule-chain-node-14"
+          "layoutX": 1105,
+          "layoutY": 99,
+          "ruleChainNodeId": "rule-chain-node-10"
         },
         "type": "True"
       },
       {
-        "fromIndex": 10,
+        "fromIndex": 7,
         "targetRuleChainId": {
           "entityType": "RULE_CHAIN",
           "id": "594b0b60-3415-11eb-ae29-b1fa2d5d3c98"
         },
         "additionalInfo": {
           "description": "",
-          "layoutX": 1229,
-          "layoutY": 174,
-          "ruleChainNodeId": "rule-chain-node-14"
+          "layoutX": 1105,
+          "layoutY": 99,
+          "ruleChainNodeId": "rule-chain-node-10"
         },
         "type": "True"
       }
