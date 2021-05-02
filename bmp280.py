@@ -1,3 +1,4 @@
+#This code is for testing bmp280 sensor
 import time
 import board
  

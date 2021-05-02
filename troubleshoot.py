@@ -1,3 +1,4 @@
+#This code is for troubleshooting all sensors
 import RPi.GPIO as GPIO
 import time
 import board
@@ -46,30 +47,30 @@ try:
     print("Start troubleshooting...")
     dist = distance()
     #print("\nDistance: %0.3f cm" % dist)
-    if dist < 20:
-        print("Ultrasonic sensor is good!")
+    if dist > 0 and dist < 38:
+        print("Ultrasonic sensor status: GOOD")
     else:
-        print("Ultrasonic sensor is bad!")
+        print("Ultrasonic sensor status: BAD")
         
     #print("Temperature: %0.3f C" % bmp280.temperature)
-    if bmp280.temperature > -40 or bmp280.temperature < 85:
-        print("Temperature sensor is good!")
+    if bmp280.temperature > -40 and bmp280.temperature < 85:
+        print("Temperature sensor status: GOOD")
     else:
-        print("Temperature sensor is bad!")
+        print("Temperature sensor status: BAD")
         
     #print("Pressure: %0.3f hPa" % bmp280.pressure)
     if bmp280.pressure > 300 and bmp280.pressure < 1100:
-        print("Pressure sensor is good!")
+        print("Pressure sensor status: GOOD")
     else:
-        print("Pressure sensor is bad!")
+        print("Pressure sensor status: BAD")
         
     # Read acceleration
     accel_x, accel_y, accel_z = sensor.accelerometer
     #print("Acceleration (m/s^2): ({0:0.3f}, {1:0.3f}, {2:0.3f})".format(accel_x, accel_y, accel_z))
-    if accel_x > -39.2 or accel_x < 39.2 or accel_y > -39.2 or accel_y < 39.2 or accel_z > -39.2 or accel_z < 39.2:
-        print("Accelerometer sensor is good!")
+    if accel_x > -39.2 and accel_x < 39.2 and accel_y > -39.2 and accel_y < 39.2 and accel_z > -39.2 and accel_z < 39.2:
+        print("Accelerometer sensor status: GOOD")
     else:
-        print("Accelerometer sensor is bad!")
+        print("Accelerometer sensor status: BAD")
     
     print("Troubleshooting done!")
       

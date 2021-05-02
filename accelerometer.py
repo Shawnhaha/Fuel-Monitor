@@ -1,5 +1,4 @@
-# Simple demo of the FXOS8700 accelerometer and magnetometer.
-# Will print the acceleration and magnetometer values every second.
+#This code is for testing accelerometer sensor
 import time
  
 import board

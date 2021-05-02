@@ -6,8 +6,9 @@ import time
 #access_token = "yvmei4GumXkttc4vHV3X"
 access_token = "zdSv7iD9au2DFVeBg0bv"
 #put web address here
-website = "http://192.168.1.126/"
+#website = "http://192.168.1.2/"
 #website = "http://10.8.0.1/"
+website = "http://10.42.0.1/"
 ##################################################
 
 # sets the send the website to POST to
@@ -120,11 +121,11 @@ try:
     #sent inital data
     dist = distance()
     accel_x, accel_y, accel_z = sensor.accelerometer
-    if(sendData("vx", vx, "vy", vy, "vz", vz, "v", v, "distance", dist, "temperature", bmp280.temperature, "air_pressure", bmp280.pressure, "accel_x", accel_x, "accel_y", accel_y, "accel_z", accel_z) == -1):
+    if(sendData("vx", vx, "vy", vy, "vz", vz, "v", v, "distance", dist, "temperature", bmp280.temperature, "air_pressure", bmp280.pressure, "accel_x", accel_x, "accel_y", accel_y, "accel_z", accel_z, "delta_x", accel_x, "delta_y", accel_y, "delta_z", accel_z) == -1):
         print("ERROR")
     else: 
         print("No error")
-    time.sleep(1)
+    #time.sleep(1)
 
     while True:
         dist = distance()

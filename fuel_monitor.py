@@ -1,3 +1,4 @@
+#This code is for testing fuel monitor locally
 import RPi.GPIO as GPIO
 import time
 import board
