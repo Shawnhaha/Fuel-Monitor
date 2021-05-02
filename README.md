@@ -7,4 +7,5 @@ Use Thingsboard as the IoT cloud platform.
 It is able to send the data which are read by the sensors to the cloud.
 The data is computed on the cloud.
 It is able to retrieve the computed data from the cloud.
-The edge client has a GUI to show the data.
+A dashboard is available on the cloud server to show the data.
+The edge client also has a GUI to show the data.
