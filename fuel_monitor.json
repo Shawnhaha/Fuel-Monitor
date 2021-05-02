@@ -49,7 +49,7 @@
             "startAngle": 45,
             "ticksAngle": 270,
             "showBorder": true,
-            "defaultColor": "#e65100",
+            "defaultColor": "#0066e6",
             "needleCircleSize": 10,
             "highlights": [],
             "showUnitTitle": true,
@@ -165,7 +165,7 @@
             "startAngle": 45,
             "ticksAngle": 270,
             "showBorder": true,
-            "defaultColor": "#e65100",
+            "defaultColor": "#0066e6",
             "needleCircleSize": 10,
             "highlights": [],
             "showUnitTitle": true,
@@ -254,15 +254,10 @@
                 {
                   "name": "fuel_level",
                   "type": "timeseries",
-                  "label": "Fuel Level",
+                  "label": "fuel_level",
                   "color": "#2196f3",
                   "settings": {},
-                  "_hash": 0.2763881471019477,
-                  "units": null,
-                  "decimals": null,
-                  "funcBody": null,
-                  "usePostProcessing": null,
-                  "postFuncBody": null
+                  "_hash": 0.49032904253088383
                 }
               ]
             }
@@ -277,11 +272,10 @@
           "color": "rgba(0, 0, 0, 0.87)",
           "padding": "8px",
           "settings": {
-            "maxValue": 300,
             "startAngle": 45,
             "ticksAngle": 270,
             "showBorder": true,
-            "defaultColor": "#e65100",
+            "defaultColor": "#0066e6",
             "needleCircleSize": 10,
             "highlights": [],
             "showUnitTitle": true,
@@ -330,7 +324,8 @@
             "colorValueBoxRect": "#888",
             "colorValueBoxRectEnd": "#666",
             "colorValueBoxBackground": "#babab2",
-            "colorValueBoxShadow": "rgba(0,0,0,1)"
+            "colorValueBoxShadow": "rgba(0,0,0,1)",
+            "maxValue": 20
           },
           "title": "New Radial gauge - Canvas Gauges",
           "dropShadow": true,
@@ -344,7 +339,7 @@
           "iconSize": "24px",
           "titleTooltip": "",
           "widgetStyle": {},
-          "units": "cm",
+          "units": "L",
           "showLegend": false
         },
         "row": 0,
@@ -388,7 +383,7 @@
           "color": "rgba(255, 254, 254, 0.87)",
           "padding": "0px",
           "settings": {
-            "maxValue": 60,
+            "maxValue": 40,
             "donutStartAngle": 90,
             "showValue": true,
             "showMinMax": true,
@@ -427,12 +422,12 @@
             "gaugeColor": "#171a1c",
             "gaugeType": "verticalBar",
             "showTitle": false,
-            "minValue": -60,
             "dashThickness": 1.2,
             "animation": true,
             "animationDuration": 500,
             "animationRule": "linear",
-            "timestampFormat": "yyyy-MM-dd HH:mm:ss"
+            "timestampFormat": "yyyy-MM-dd HH:mm:ss",
+            "minValue": -40
           },
           "title": "New Digital vertical bar",
           "dropShadow": true,
@@ -444,7 +439,12 @@
           "widgetStyle": {},
           "useDashboardTimewindow": true,
           "showLegend": false,
-          "actions": {}
+          "actions": {},
+          "showTitleIcon": false,
+          "iconColor": "rgba(0, 0, 0, 0.87)",
+          "iconSize": "24px",
+          "titleTooltip": "",
+          "units": "m/s"
         },
         "row": 0,
         "col": 0,
@@ -487,7 +487,7 @@
           "color": "rgba(255, 254, 254, 0.87)",
           "padding": "0px",
           "settings": {
-            "maxValue": 60,
+            "maxValue": 40,
             "donutStartAngle": 90,
             "showValue": true,
             "showMinMax": true,
@@ -526,7 +526,7 @@
             "gaugeColor": "#171a1c",
             "gaugeType": "verticalBar",
             "showTitle": false,
-            "minValue": -60,
+            "minValue": -40,
             "dashThickness": 1.2,
             "animation": true,
             "animationDuration": 500,
@@ -543,7 +543,12 @@
           "widgetStyle": {},
           "useDashboardTimewindow": true,
           "showLegend": false,
-          "actions": {}
+          "actions": {},
+          "showTitleIcon": false,
+          "iconColor": "rgba(0, 0, 0, 0.87)",
+          "iconSize": "24px",
+          "titleTooltip": "",
+          "units": "m/s"
         },
         "row": 0,
         "col": 0,
@@ -586,7 +591,7 @@
           "color": "rgba(255, 254, 254, 0.87)",
           "padding": "0px",
           "settings": {
-            "maxValue": 60,
+            "maxValue": 40,
             "donutStartAngle": 90,
             "showValue": true,
             "showMinMax": true,
@@ -625,12 +630,13 @@
             "gaugeColor": "#171a1c",
             "gaugeType": "verticalBar",
             "showTitle": false,
-            "minValue": -60,
+            "minValue": -40,
             "dashThickness": 1.2,
             "animation": true,
             "animationDuration": 500,
             "animationRule": "linear",
-            "timestampFormat": "yyyy-MM-dd HH:mm:ss"
+            "timestampFormat": "yyyy-MM-dd HH:mm:ss",
+            "title": "vz"
           },
           "title": "New Digital vertical bar",
           "dropShadow": true,
@@ -642,7 +648,12 @@
           "widgetStyle": {},
           "useDashboardTimewindow": true,
           "showLegend": false,
-          "actions": {}
+          "actions": {},
+          "showTitleIcon": false,
+          "iconColor": "rgba(0, 0, 0, 0.87)",
+          "iconSize": "24px",
+          "titleTooltip": "",
+          "units": "m/s"
         },
         "row": 0,
         "col": 0,
@@ -729,7 +740,7 @@
             "animationRule": "linear",
             "timestampFormat": "yyyy-MM-dd HH:mm:ss",
             "minValue": 0,
-            "maxValue": 60
+            "maxValue": 20
           },
           "title": "New Digital vertical bar",
           "dropShadow": true,
@@ -741,7 +752,12 @@
           "widgetStyle": {},
           "useDashboardTimewindow": true,
           "showLegend": false,
-          "actions": {}
+          "actions": {},
+          "showTitleIcon": false,
+          "iconColor": "rgba(0, 0, 0, 0.87)",
+          "iconSize": "24px",
+          "titleTooltip": "",
+          "units": "L/s"
         },
         "row": 0,
         "col": 0,
@@ -828,7 +844,7 @@
             "animationDuration": 500,
             "animationRule": "linear",
             "timestampFormat": "yyyy-MM-dd HH:mm:ss",
-            "maxValue": 1000
+            "maxValue": 10000
           },
           "title": "New Digital vertical bar",
           "dropShadow": true,
@@ -840,7 +856,12 @@
           "widgetStyle": {},
           "useDashboardTimewindow": true,
           "showLegend": false,
-          "actions": {}
+          "actions": {},
+          "showTitleIcon": false,
+          "iconColor": "rgba(0, 0, 0, 0.87)",
+          "iconSize": "24px",
+          "titleTooltip": "",
+          "units": "s"
         },
         "row": 0,
         "col": 0,
@@ -921,13 +942,13 @@
             "gaugeColor": "#171a1c",
             "gaugeType": "verticalBar",
             "showTitle": false,
-            "minValue": -60,
             "dashThickness": 1.2,
             "animation": true,
             "animationDuration": 500,
             "animationRule": "linear",
             "timestampFormat": "yyyy-MM-dd HH:mm:ss",
-            "maxValue": 10000
+            "maxValue": 10000,
+            "minValue": 0
           },
           "title": "New Digital vertical bar",
           "dropShadow": true,
@@ -939,7 +960,12 @@
           "widgetStyle": {},
           "useDashboardTimewindow": true,
           "showLegend": false,
-          "actions": {}
+          "actions": {},
+          "showTitleIcon": false,
+          "iconColor": "rgba(0, 0, 0, 0.87)",
+          "iconSize": "24px",
+          "titleTooltip": "",
+          "units": "m"
         },
         "row": 0,
         "col": 0,
@@ -1027,6 +1053,8 @@
             "animationDuration": 500,
             "animationRule": "linear",
             "timestampFormat": "yyyy-MM-dd HH:mm:ss",
+            "showTitle": true,
+            "title": "v",
             "unitTitle": "m/s"
           },
           "title": "New Digital speedometer",
@@ -1077,46 +1105,46 @@
                 "col": 12
               },
               "84a211e2-1ec6-c343-9f16-3188a085eb3e": {
-                "sizeX": 2,
+                "sizeX": 3,
                 "sizeY": 5,
                 "row": 5,
                 "col": 0
               },
               "9c257878-b874-cd8f-2201-843a897363c1": {
-                "sizeX": 2,
+                "sizeX": 3,
                 "sizeY": 5,
                 "row": 5,
-                "col": 2
+                "col": 3
               },
               "2d1a6994-1ac0-9709-3c2e-68dbe09ccbbb": {
-                "sizeX": 2,
+                "sizeX": 3,
                 "sizeY": 5,
                 "row": 5,
-                "col": 4
+                "col": 6
               },
               "7ee50f12-f04e-0fed-f317-589413b11322": {
-                "sizeX": 2,
+                "sizeX": 3,
+                "sizeY": 5,
+                "row": 5,
+                "col": 9
+              },
+              "1c38f18d-6e60-e56e-0e89-21a56ee5844b": {
+                "sizeX": 3,
                 "sizeY": 5,
                 "row": 5,
                 "col": 12
               },
-              "1c38f18d-6e60-e56e-0e89-21a56ee5844b": {
-                "sizeX": 2,
-                "sizeY": 5,
-                "row": 5,
-                "col": 14
-              },
               "2de41a21-851e-055b-552c-31401a3d5709": {
-                "sizeX": 2,
+                "sizeX": 3,
                 "sizeY": 5,
                 "row": 5,
-                "col": 16
+                "col": 15
               },
               "09c28bb0-7ede-121a-403a-fcbed6d6dd47": {
                 "sizeX": 6,
-                "sizeY": 5,
-                "row": 5,
-                "col": 6
+                "sizeY": 10,
+                "row": 0,
+                "col": 18
               }
             },
             "gridSettings": {
